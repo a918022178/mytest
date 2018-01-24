@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./umeditor.css">
+    <script src="./jquery.min.js"></script>
+    <script src="./editor_api.js"></script>
+    <script src="./umeditor.config.js"></script>
+    <script src="./zh-cn.js"></script>
+</head>
+<body>
+    <script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
+        <p>这里我可以写一些输入提示</p>
+    </script>
+    <script>
+        var um = UM.getEditor('myEditor')
+    </script>
+</body>
+</html>

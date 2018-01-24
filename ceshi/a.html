@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style>
+        section{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 200px auto;
+        }
+        div{
+            transition: all .2s;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .a{
+            background: yellow;
+        }
+        .b{
+            background: cyan;
+        }
+        .c{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+    </section>
+    <script>
+        $(function () {
+            var arr = [{'opacity':0.3,'top':'-100px',"left":'-100px'}, { 'opacity': 1, 'top': '0', "left": '0' }, { 'opacity': 0.3, 'top': '-100px', "left": '100px' }];
+            setInterval(function () {
+                arr.forEach(function (v,i) {
+                    $($('div')[i]).css(arr[i])
+                    console.log(arr)
+                })
+                arr.push(arr.shift())
+             },400)
+        })
+    </script>
+</body>
+</html>

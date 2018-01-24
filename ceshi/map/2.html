@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<title>学生综合实践平台_学生综合实践平台</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="./aa/base.css">
+		<!-- <link rel="stylesheet" href="./aa/shop.css"/> -->
+		<!-- <script src="./aa/jquery.js"></script> -->
+		<!-- <script src="./aa/base.js"></script> -->
+		<!-- <script src="./aa/layer.js"></script> -->
+		<!-- <script src="./aa/roll.js"></script> -->
+		<!-- <script src="./aa/public.js"></script> -->
+		        
+        
+		 <script>
+            function bd_encrypt(gg_lat, gg_lon)   // 百度地图测距偏差 问题修复
+            {
+				var page =  "/mobile/near/dingwei/lat/"+gg_lat+"/lng/"+gg_lon+".html";
+				$.get(page, function (data) {
+					if(data == '1'){
+						$("#local").html("附近");
+					}
+				}, 'html');
+            }
+            navigator.geolocation.getCurrentPosition(function (position) {
+                bd_encrypt(position.coords.latitude, position.coords.longitude);
+            });
+        </script>
+	</head>
+	<body>
+	<header class="top-fixed bg-yellow bg-inverse">
+		<div class="top-back">
+			<a href="/mobile/shop/detail/shop_id/144.html"><i class="icon-angle-left"></i></a>
+		</div>
+		<div class="top-title">
+			商家地图
+		</div>
+	</header>
+
+	<style type="text/css">
+		body,html,#allmap{width:100%;height:100%;overflow:hidden;}
+		body{padding:50px 0 0 0;}
+		#golist {display: none;}
+		@media (max-device-width: 800px){#golist{display: block!important;}}
+	</style>
+	
+	<script src="http://api.map.baidu.com/components?ak=C9613fa45f450daa331d85184c920119&v=1.0"></script>
+	
+	<lbs-map width="100%" style="height:100%" center=",">
+		<lbs-poi name="贝拉小镇" location="," addr="贝拉小镇贝拉小镇" ></lbs-poi>
+	</lbs-map>
+</body>
+</html>

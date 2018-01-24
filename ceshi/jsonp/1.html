@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <title></title>
+        <script type="text/javascript">
+            // 得到航班信息查询结果后的回调函数
+            var aHandler = function (data) {
+                alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+            };
+            // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+            var url = "./1.js?callback=aHandler";
+            // 创建script标签，设置其属性
+            var script = document.createElement('script');
+            script.setAttribute('src', url);
+            // 把script标签加入head，此时调用开始
+            document.getElementsByTagName('head')[0].appendChild(script); 
+        </script>
+</head>
+<body>
+    <div>
+        <button>dgsdzg</button>
+        <a href="/r">xzdv</a>
+    </div>
+</body>
+<script> 
+    // document.querySelector('div').onclick=function(e){
+        
+    //     console.log('div')
+    // }
+    // document.querySelector('button').onclick=function(e){
+    //     e.stopPropagation();
+    //     console.log('button')
+    // }
+    document.querySelector('a').onclick=function(e){
+        e.preventDefault();
+        
+    }
+</script>
+</html>

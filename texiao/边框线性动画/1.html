@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            background: black;
+        }
+        section{
+            width:500px;
+            margin: 150px auto;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid cyan;
+            background: black;
+            position: relative;
+        }
+        div::after,div::before{
+            content: '';
+            width: 340px;
+            height: 340px;
+            position: absolute;
+            z-index: 10;
+            left: -20px;
+            top: -20px;
+            border: 1px solid yellow;
+            animation: aa 4s infinite;
+        }
+        div::after{
+            animation-delay: -2s;
+        }
+     
+        @keyframes aa{
+            0%,100%{
+                clip: rect(0 342px 2px 0)
+            }
+            25%{
+                clip: rect(0 342px 342px 340px)
+            }
+            50%{
+                clip: rect(340px 341px 342px 0)
+            }
+            75%{
+                clip: rect(0 1px 341px 0px)
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background: black;
+        }
+
+        section {
+            width: 500px;
+            margin: 150px auto;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background: black;
+            position: relative;
+        }
+
+        div::after{
+            content: '';
+            width: 340px;
+            height: 340px;
+            position: absolute;
+            z-index: 10;
+            left: -20px;
+            top: -20px;
+            border: 1px solid yellow;
+        }
+
+
+        @keyframes aa {
+            0%{
+                clip: rect(0 0 2px 0)
+            }
+            25% {
+                clip: rect(0 342px 2px 0)
+            }
+            59% {
+                clip: rect(0 342px 342px 340px)
+            }
+            75% {
+                clip: rect(340px 341px 342px 0)
+            }
+            100% {
+                clip: rect(0 1px 341px 0px)
+            }
+
+        }
+        div:hover{
+            animation: aa 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+    </section>
+</body>
+<script>
+    var a =document.querySelector('div');
+</script>
+</html>

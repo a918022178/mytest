@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./1.js"></script>
+    <style>
+        .booth {
+            width: 400px;
+            background: #bbb;
+            border: 10px solid #ddd;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- input -->
+ <div contenteditable="true"></div>
+</body>
+<script>
+    $(function(){
+        $.data($('div')[0],'aaa',99999);
+        $('div').data('bbb',1000001)
+        console.log($('div').data('aaa'))
+        console.log($('div').data('bbb'))
+        function foo(x) {
+            var tmp = 3;
+            return function (y) {
+                alert(x + y + tmp);
+                x.memb = x.memb ? x.memb + 1 : 1;
+                alert(x.memb);
+                }
+            }
+            var age = new Number(2);
+            var bar = foo(age);
+            bar(10);
+        })
+</script>
+
+</html>

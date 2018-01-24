@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="file" name="a"  multiple accept='image/*'  id="a">
+    </div>
+    <script>
+        var files ;
+        document.querySelector('#a').onchange=function(e){
+            files = Array.from(e.target.files);
+            console.log(files)
+            console.log(typeof files)
+              files.forEach(function(item) {
+                var reader = new FileReader();
+                reader.readAsDataURL(item);
+                reader.onprogress = function(e) {
+                    if (e.lengthComputable) {
+                        // 简单把进度信息打印到控制台吧
+                console.log(e.loaded / e.total + '%') 
+            }
+        }
+        reader.onload = function(e) {
+            var image = new Image()
+            image.src = e.target.result
+            document.body.appendChild(image)
+        }
+        reader.onerror = function(e) {
+            console.log('there is an error!')
+        }
+    })
+}
+
+    </script>
+</body>
+</html>
